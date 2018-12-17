@@ -1,6 +1,8 @@
 <h1>Profiles#show</h1>
 <p>Find me in app/views/profiles/show.html.erb</p>
+<% if !@profile.avatar.url.nil?%>
 <%= image_tag @profile.avatar.url(:thumb) %> <br>
+<% end %>
 <strong>firstname</strong><br>
 <%= @profile.firtsname%><br/>
 <strong>lastname</strong><br>
