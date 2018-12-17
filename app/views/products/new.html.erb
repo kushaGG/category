@@ -1,0 +1,24 @@
+<h1>Products#new</h1>
+<p>Find me in app/views/products/new.html.erb</p>
+<%= form_for @product, url: products_path do |f| %>
+
+<% if @product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+ 
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <strong>title</strong><br>
+  <%= f.text_field :title %><br />
+  <strong>description</strong><br>
+  <%= f.text_field :description %><br />
+  <strong>price</strong><br>
+  <%= f.text_field :price %><br />
+  <%= f.submit "Create" %>
+<% end %>

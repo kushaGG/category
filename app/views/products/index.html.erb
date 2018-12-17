@@ -1,0 +1,30 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+
+
+<% if user_signed_in? %>
+	<% if current_user.profile.nil? %>
+		<%=  link_to  "profile", new_profile_path %><br/>
+	<% else %>	
+		<%=  link_to  "profile", profile_path(current_user.id) %><br/>
+	<% end %>
+	<%=  link_to  "add product", new_product_path  %><br/>
+	<%=  link_to  "logout", destroy_user_session_path, method: :delete 	 %><br/>
+<% else %>
+	<%=  link_to  "login", new_user_session_path 	 %><br/>
+<% end %>
+
+<% if @products == [] %>
+    <p>Create new product</p>
+<% else %>
+    <% @products.each do |product| %>
+    	<strong>title</strong> <br>
+   		<%= product.title %><br/>
+   		<strong>description</strong> <br>
+    	<%= product.description %> <br>
+    	<strong>price</strong> <br>
+    	<%= product.price %> <br>
+		<%= link_to "Read More", product_path(product.id) %>
+   		<hr>
+    <% end %>
+<% end %>

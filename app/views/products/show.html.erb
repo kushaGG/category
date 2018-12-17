@@ -1,0 +1,13 @@
+<h1>Products#show</h1>
+<p>Find me in app/views/products/show.html.erb</p>
+
+
+<strong>title</strong><br>
+<%= @product.title%><br/>
+<strong>description</strong><br>
+<%= @product.description%><br/>
+<strong>price</strong><br>
+<%= @product.price%><br/>
+
+<%=  link_to  "edit", edit_product_path(@product.id) %><br/>
+<%=  link_to  "destroy",product_path(@product.id), method: :delete  %><br/>

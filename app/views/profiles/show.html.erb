@@ -1,0 +1,12 @@
+<h1>Profiles#show</h1>
+<p>Find me in app/views/profiles/show.html.erb</p>
+<%= image_tag @profile.avatar.url(:thumb) %> <br>
+<strong>firstname</strong><br>
+<%= @profile.firtsname%><br/>
+<strong>lastname</strong><br>
+<%= @profile.lastname%><br/>
+<strong>age</strong><br>
+<%= @profile.age%><br/>
+
+<%=  link_to  "edit", edit_profile_path(@profile.id) %><br/>
+<%=  link_to  "destroy",profile_path(@profile.id), method: :delete  %><br/>
